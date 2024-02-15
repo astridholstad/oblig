@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     const kjop = document.getElementById('kjop');
-    const slettBillett = document.getElementById('slettBillett');
-    const billettListe = [];
+    const slettBilett = document.getElementById('slettBilett');
+    const bilettListe = [];
 
     kjop.addEventListener('click', function () {
+        console.log('Kjøp billett-knappen ble klikket på');
+
         const filmValg = document.getElementById('film');
         const antallInput = document.getElementById('antall');
         const firstNameInput = document.getElementById('forNavn');
@@ -15,39 +17,42 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Vennligst fyll ut alle feltene.')
             return;
         }
-        const billett = {
+        const bilett = {
             film: filmValg.value,
             antall: parseInt(antallInput.value),
             firstName: firstNameInput.value,
             lastName: lastNameInput.value,
-            telefonnr: phoneInput.value,
+            telefonNr: phoneInput.value,
             email: emailInput.value
         };
 
-        billettListe.push(billett);
+        bilettListe.push(bilett);
         addTicketToList();
         clearInputs();
-    });
+        });
 
-    slettBillett.addEventListener('click', function () {
-        billettListe.length = 0;
+        slettBilett.addEventListener('click', function () {
+        console.log('Slett bilett-knappen ble klikket på');
+        bilettListe.length = 0;
         addTicketToList();
+
     });
 });
 
-function validateInputs(film, antall, firstName, lastName, telefonnr, email) {
-    return film !== '' && antall !== '' && firstName !== '' && lastName !== '' && telefonnr !== '' && email !== '';
+function validateInputs(film, antall, firstName, lastName, telefonNr, email) {
+    return film !== '' && antall !== '' && firstName !== '' && lastName !== '' && telefonNr !== '' && email !== '';
 }
 
 function addTicketToList() {
-    const billettListeElement = document.getElementById('billettListe');
-    billettListeElement.innerHTML = '';
+    const bilettListeElement = document.getElementById('bilettListe');
+    bilettListeElement.innerHTML = '';
 
-    billettListe.forEach(billett => {
-        const billettType = document.createElement('li');
-        billettType.textContent = `Film: ${billett.film}, Antall: ${billett.antall}, Navn: ${billett.firstName} ${billett.lastName}, Telefon: ${billett.telefonnr}, Epost: ${billett.email}`;
-        billettListeElement.appendChild(billettType);
-    });
+    for (let i = 0; i < bilettListe.length; i++) {
+        const bilett = bilettListe[i];
+        const bilettType = document.createElement('li');
+        bilettType.textContent = `Film: ${bilett.film}, Antall: ${bilett.antall}, Foravn: ${bilett.firstName}, Etternavn: ${bilett.lastName}, Telefon: ${bilett.telefonNr}, Epost: ${bilett.email}`;
+        bilettListeElement.appendChild(bilettType);
+        }
 }
 
 function clearInputs() {
@@ -56,6 +61,8 @@ function clearInputs() {
         input.value = '';
     });
 }
+
+
 
 
 
