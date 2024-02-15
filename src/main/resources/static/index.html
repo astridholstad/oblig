@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kinobiletter</title>
+</head>
+<body>
+    <h1>Bestilling av Kinobiletter</h1>
+        <div>
+            <label for="film">Velg film:</label>
+            <select id="film">
+            <option value="Oppenheimer">Oppenheimer</option>
+            <option value="Interstellar">Interstellar</option>
+            <option value="Barbie">Barbie</option>
+            </select>
+        </div>
+<br>
+        <div>
+            <label for="antall">Antall:</label>
+            <input type="number" id="antall">
+        </div>
+<br>
+        <div>
+            <label for="forNavn">Fornavn:</label>
+            <input type="text" id="forNavn">
+        </div>
+<br>
+        <div>
+            <label for="etterNavn">Etternavn:</label>
+            <input type="text" id="etterNavn">
+        </div>
+<br>
+        <div>
+            <label for="telefonNr">Telefonnr:</label>
+            <input type="tel" id="telefonNr">
+        </div>
+<br>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+        </div>
+<br>
+        <div>
+            <button id="kjøp">Kjøp billetter</button>
+        </div>
+
+
+    <h2>Alle billetter</h2>
+        <ul id="bilettListe"></ul>
+
+        <div>
+            <button id="slettBilett">Slett alle billetter</button>
+        </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
