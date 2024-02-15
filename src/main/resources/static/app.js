@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const slettBilett = document.getElementById('slettBilett');
     const bilettListe = [];
 
-    const filmValgValidationMsg = document.getElementById('filmValgValidationMsg');
     const antallValidationMsg = document.getElementById('antallValidationMsg');
     const firstNameValidationMsg = document.getElementById('firstNameValidationMsg');
     const lastNameValidationMsg = document.getElementById('lastNameValidationMsg');
@@ -79,10 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Vis valideringsmelding ved siden av gitt element
         element.textContent = message;
     }
-
-function validateInputs(film, antall, firstName, lastName, telefonNr, email) {
-    return film !== '' && antall !== '' && firstName !== '' && lastName !== '' && telefonNr !== '' && email !== '';
-}
 
 function addTicketToList() {
     const bilettListeElement = document.getElementById('bilettListe');
