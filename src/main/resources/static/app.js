@@ -93,7 +93,7 @@ function addTicketToList() {
     for (let i = 0; i < bilettListe.length; i++) {
         const bilett = bilettListe[i];
         const bilettType = document.createElement('li');
-        bilettType.textContent = `Film: ${bilett.film}, Antall: ${bilett.antall}, Foravn: ${bilett.firstName}, Etternavn: ${bilett.lastName}, Telefon: ${bilett.telefonNr}, Epost: ${bilett.email}`;
+        bilettType.textContent = `Film: ${bilett.film}, Antall: ${bilett.antall}, Fornavn: ${bilett.firstName}, Etternavn: ${bilett.lastName}, Telefon: ${bilett.telefonNr}, Epost: ${bilett.email}`;
         bilettListeElement.appendChild(bilettType);
         }
 }
