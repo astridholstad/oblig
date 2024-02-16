@@ -36,12 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
             displayValidationMsg(lastNameValidationMsg, 'Må skrive noe i etternavn');
             isValid = false;
         }
-        if (phoneInput.value === '') {
-            displayValidationMsg(telefonNrValidationMsg, 'Må oppgi telefonnummer');
+        if (!validateTelefonNr(phoneInput.value)) {
+            displayValidationMsg(telefonNrValidationMsg, 'Ugyldig telefonnummer');
             isValid = false;
         }
-        if (emailInput.value === '') {
-            displayValidationMsg(emailValidationMsg, 'Må oppgi e-postadresse');
+        if (!validateEmail(emailInput.value)) {
+            displayValidationMsg(emailValidationMsg, 'Ugyldig e-postadresse');
             isValid = false;
         }
         if (isValid) {
@@ -67,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
     function resetValidationMessages() {
-        // Fjern alle tidligere valideringsmeldinger
         const validationMsgs = document.querySelectorAll('.validation-msg');
         validationMsgs.forEach(msg => {
             msg.textContent = '';
@@ -75,8 +74,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function displayValidationMsg(element, message) {
-        // Vis valideringsmelding ved siden av gitt element
         element.textContent = message;
+    }
+
+    function validateTelefonNr(tlfnr) {
+        const telefonNrRegex = /^\d{8}$/;
+        return telefonNrRegex.test(tlfnr);
+    }
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     }
 
 function addTicketToList() {
