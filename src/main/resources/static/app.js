@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const telefonNrValidationMsg = document.getElementById('telefonNrValidationMsg');
     const emailValidationMsg = document.getElementById('emailValidationMsg');
 
+    document.getElementById("bilettType").addEventListener("submit", function(event) {
+        event.preventDefault();
+    });
+
     kjop.addEventListener('click', function () {
         console.log('Kjøp billett-knappen ble klikket på');
 

@@ -7,55 +7,45 @@
 <script src="app.js"></script>
 <body>
     <h1>Bestilling av Kinobiletter</h1>
-        <div>
+        <form id="bilettType">
             <label for="film">Velg film:</label>
             <select id="film">
             <option value="Oppenheimer">Oppenheimer</option>
             <option value="Interstellar">Interstellar</option>
             <option value="Barbie">Barbie</option>
             </select>
-        </div>
-<br>
-        <div>
+
+<br><br>
             <label for="antall">Antall:</label>
             <input type="number" id="antall">
             <span id="antallValidationMsg" class="validation-msg"></span>
-        </div>
-<br>
-        <div>
+<br><br>
+
             <label for="forNavn">Fornavn:</label>
             <input type="text" id="forNavn">
             <span id="firstNameValidationMsg" class="validation-msg"></span>
-        </div>
 <br>
-        <div>
+
             <label for="etterNavn">Etternavn:</label>
             <input type="text" id="etterNavn">
             <span id="lastNameValidationMsg" class="validation-msg"></span>
-        </div>
 <br>
-        <div>
             <label for="telefonNr">Telefonnr:</label>
             <input type="tel" id="telefonNr">
             <span id="telefonNrValidationMsg" class="validation-msg"></span>
-        </div>
 <br>
-        <div>
             <label for="email">Email:</label>
             <input type="email" id="email">
             <span id="emailValidationMsg" class="validation-msg"></span>
-        </div>
-<br>
-        <div>
-            <button id="kjop">Kjøp biletter</button>
-        </div>
+<br><br>
 
-    <h2>Alle biletter</h2>
+            <button type="button" id="kjop">Kjøp biletter</button>
 
-        <ul id="bilettListe"></ul>
 <br>
-        <div>
-            <button id="slettBilett">Slett alle biletter</button>
-        </div>
+            <h2>Alle biletter</h2>
+            <ul id="bilettListe"></ul>
+            <button type="button" id="slettBilett">Slett alle biletter</button>
+        </form>
+<br>
 </body>
 </html>
