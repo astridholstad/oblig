@@ -21,9 +21,7 @@ jeg bruker validerings funksjoner med regex for å sjekke om de ulike validering
 meldingene for å skrive inn riktig input ved siden av inputboksene blir nullstilt 
 når bruker har kjøpt bilett brukes clearInputs() funksjon for å tømme feltene. 
 
-jeg er klar over at til neste gang så skal jeg bruke form i html. 
-men brukte div denne gangen og kom på det når jeg var ferdig. 
-men det funker :)
+
 
 
 
