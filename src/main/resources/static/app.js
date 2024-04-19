@@ -108,6 +108,7 @@ function clearInputs() {
         input.value = '';
     });
     }});
+
 /*function bilett(){
         const bilett = {
             film: $("#film").val(),

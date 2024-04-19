@@ -3,25 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Kinobiletter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 </head>
-<script src="app.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <body>
   <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <h1>Bestilling av Kinobiletter</h1>
-                <form class="form">
+                <form class="form" id="bilettType">
                     <div class="form-group">
-                        <form id="bilettType">
                              <label for="film">Velg film:</label>
                              <select id="film" class="form-control">
                              <option value="Oppenheimer">Oppenheimer</option>
                              <option value="Interstellar">Interstellar</option>
                              <option value="Barbie">Barbie</option>
                              </select>
-                        </form>
                      </div>
                     <div class="form-group">
                             <label for="antall">Antall:</label>
@@ -48,15 +44,17 @@
                             <input type="email" class="form-control" id="email">
                             <span id="emailValidationMsg" class="validation-msg"></span>
                     </div>
+                <button type="button" button class="btn btn-primary" id="kjop">Kjøp biletter</button>
                 </form>
-                <button onclick="kjop()" button class="btn btn-primary" id="kjop">Kjøp biletter</button>
-                </div>
-                    <div class="col-md-8">
-                            <h2>Alle biletter</h2>
-                            <ul id="bilettListe"></ul>
-                            <button onclick="slettBilett" class="btn btn-danger" id="slettBilett">Slett alle biletter</button>
-                    </div>
-             </div>
-       </div>
+            </div>
+            <div class="col-md-8">
+                <h2>Alle biletter</h2>
+                <ul id="bilettListe"></ul>
+                <button type="button" class="btn btn-danger" id="slettBilett">Slett alle biletter</button>
+            </div>
+        </div>
+  </div>
+  <script src="app.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>

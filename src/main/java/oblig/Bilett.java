@@ -22,11 +22,3 @@ public class Bilett{
 
 
 }
-/* {
-    @GetMapping("/")
-    public String hei(String navn){
-        return "hei verden "+ navn;
-    }
-
-}
-*/
