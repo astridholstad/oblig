@@ -107,10 +107,37 @@ function clearInputs() {
     inputs.forEach(input => {
         input.value = '';
     });
+    }});
+/*function bilett(){
+        const bilett = {
+            film: $("#film").val(),
+            antall: $("#antall").val(),
+            fornavn: $("#firstName").val(),
+            etternavn: $("#lastName").val(),
+            telefon: $("#telefonNr").val(),
+            epost: $("#email").val()
+        };
+        $.get("/bilett", bilett, function (){
+
+        });
+
+}
+function hentAlle(){
+        $.get("/hentAlle", function (data){
+            formaterData(data);
+        )};
+}
+function formaterData(bilettListe){
+        let ut = "<table><tr><th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefon</th><th>Epost</th></tr>";
+        for (const bilettListe of biletter){
+            ut += "<tr><td>"+bilett.film"+</td><td>"+bilett.antall+"</td><td"+bilett.firstName+"<td></td>"+bilett.lastName+"</td><td"+bilett.telefonNr+"</td><td"+bilett.email+"</td></tr>";
+        }
+        ut += "</table>";
+        $("#Alle biletter").html.ut;
 }
 });
 
-
+*/
 
 
 
