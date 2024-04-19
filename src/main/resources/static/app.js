@@ -28,24 +28,24 @@ document.addEventListener('DOMContentLoaded', function() {
         let isValid = true;
 
         if (antallInput.value === '') {
-            displayValidationMsg(antallValidationMsg, 'Må oppgi antall billetter');
+            displayValidationMsg(antallValidationMsg, '*Må oppgi antall billetter');
             isValid = false;
         }
 
         if (firstNameInput.value === '') {
-            displayValidationMsg(firstNameValidationMsg, 'Må skrive noe i fornavn');
+            displayValidationMsg(firstNameValidationMsg, '*Må skrive noe i fornavn');
             isValid = false;
         }
         if (lastNameInput.value === '') {
-            displayValidationMsg(lastNameValidationMsg, 'Må skrive noe i etternavn');
+            displayValidationMsg(lastNameValidationMsg, '*Må skrive noe i etternavn');
             isValid = false;
         }
         if (!validateTelefonNr(phoneInput.value)) {
-            displayValidationMsg(telefonNrValidationMsg, 'Ugyldig telefonnummer');
+            displayValidationMsg(telefonNrValidationMsg, '*Ugyldig telefonnummer');
             isValid = false;
         }
         if (!validateEmail(emailInput.value)) {
-            displayValidationMsg(emailValidationMsg, 'Ugyldig e-postadresse');
+            displayValidationMsg(emailValidationMsg, '*Ugyldig e-postadresse');
             isValid = false;
         }
         if (isValid) {
