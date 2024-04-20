@@ -9,14 +9,14 @@ import java.util.ArrayList;
 
 @RestController
 public class Bilett{
-    public final List<bilettListe> alleBiletter = new ArrayList<>();
+    private final List<BilettListe> alleBiletter = new ArrayList<>();
 
     @PostMapping("/kjøp")
-    public void lagreBilett(bilettListe innBilett){
+    public void lagreBilett(BilettListe innBilett){
         alleBiletter.add(innBilett);
     }
     @GetMapping("/hentAlle")
-    public List<bilettListe> hentAlle(){
+    public List<BilettListe> hentAlle(){
         return alleBiletter;
     }
 
