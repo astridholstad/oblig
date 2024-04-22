@@ -1,11 +1,6 @@
 package oblig;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-public class BilettListe {
+public class Biletter {
 
     private String film;
     private int antall;
@@ -14,7 +9,7 @@ public class BilettListe {
     private String telefonNr;
     private String email;
 
-    public BilettListe(String film, int antall, String forNavn, String etterNavn, String telefonNr, String email){
+    public Biletter(String film, int antall, String forNavn, String etterNavn, String telefonNr, String email){
         this.film = film;
         this.antall = antall;
         this.forNavn = forNavn;
@@ -22,7 +17,7 @@ public class BilettListe {
         this.telefonNr = telefonNr;
         this.email = email;
     }
-    public BilettListe(){
+    public Biletter(){
     }
 
     public String getFilm() {
@@ -57,7 +52,7 @@ public class BilettListe {
         this.etterNavn = etterNavn;
     }
 
-    public int getTelefonNr() {
+    public String getTelefonNr() {
         return telefonNr;
     }
 
