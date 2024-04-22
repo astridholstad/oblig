@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const kjop = document.getElementById('kjop');
     const slettBilett = document.getElementById('slettBilett');
-    const bilettListe = [];
+    //const bilettListe = [];
 
     const antallValidationMsg = document.getElementById('antallValidationMsg');
     const firstNameValidationMsg = document.getElementById('firstNameValidationMsg');
@@ -13,8 +13,61 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
     });
 
+
+
     kjop.addEventListener('click', function () {
-        console.log('Kjøp billett-knappen ble klikket på');
+        resetValidationMessages();
+        if(validateForm()){
+            const ticket = collectTicketData();
+            fetch("/tickets", {
+                method: `POST`,
+                headers: {
+                    'Content-Type': 'application/json'
+                    },
+                body: JSON.stringify(ticket)
+            })
+                .then(response => response.json())
+                .then((data => {
+                console.log('Ticket saved', data);
+                addTicketToList(data);
+                clearInputs(); // Clear inputs after successful submission
+            }))
+                .catch(error => console.error('Error:', error));
+        }})
+     });
+
+        slettBilett.addEventListener(`click`, function (){
+            fetch(`/tickets`, {
+                method: `DELETE`,
+            })
+                .then(() => {
+                    console.log('All tickets deleted');
+                    document.getElementById('bilettListe').innerHTML = '';
+                })
+                .catch(error => console.error('Error:', error));
+        })
+        function validateForm () {
+            resetValidationMessages();
+            let isValid =  true;
+        }
+
+
+        function addTicketToList(ticket) {
+            const bilettListeElement = document.getElementById(`bilettListe`);
+            const bilettType = document.createElement(`li`);
+            bilettType.textContent = `Film: ${bilett.film}, Antall: ${bilett.antall}, Fornavn: ${bilett.firstName}, Etternavn: ${bilett.lastName}, Telefon: ${bilett.telefonNr}, Epost: ${bilett.email}`;
+            bilettListeElement.appendChild(bilettType);
+        }
+
+        function clearInputs() {
+
+        }
+        function validateForm () {
+         resetValidationMessages();
+            let isValid =  true;
+        }
+
+        //console.log('Kjøp billett-knappen ble klikket på');
 
         const filmValg = document.getElementById('film');
         const antallInput = document.getElementById('antall');
@@ -48,7 +101,11 @@ document.addEventListener('DOMContentLoaded', function() {
             displayValidationMsg(emailValidationMsg, '*Ugyldig e-postadresse');
             isValid = false;
         }
-        if (isValid) {
+
+        return isValid;
+
+        }
+        /* if (isValid) {
             const bilett = {
                 film: filmValg.value,
                 antall: parseInt(antallInput.value),
@@ -62,6 +119,30 @@ document.addEventListener('DOMContentLoaded', function() {
             addTicketToList();
             clearInputs();
         }
+        */
+
+        function collectTicketData() {
+            return {
+            film: document.getElementById('film').value,
+            antall: parseInt(document.getElementById('antall').value),
+            firstName: document.getElementById('forNavn').value,
+            lastName: document.getElementById('etterNavn').value,
+            telefonNr: document.getElementById('telefonNr').value,
+            email: document.getElementById('email').value
+        )};
+        }
+
+        function postTicket(ticket){
+            fetch("/tickets", {
+                method: `POST`,
+                headers: {
+                    'Content-Type': 'application/json'
+                body: JSON.stringify(ticket)
+            })
+
+
+
+
 
         slettBilett.addEventListener('click', function () {
         console.log('Slett bilett-knappen ble klikket på');

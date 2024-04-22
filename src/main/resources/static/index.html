@@ -44,17 +44,17 @@
                             <input type="email" class="form-control" id="email">
                             <span id="emailValidationMsg" class="validation-msg"></span>
                     </div>
-                <button type="button" button class="btn btn-primary" id="kjop">Kjøp biletter</button>
+                 <button class="btn btn-primary" onclick="regBilett()">Kjøp biletter</button>
                 </form>
             </div>
             <div class="col-md-8">
                 <h2>Alle biletter</h2>
-                <ul id="bilettListe"></ul>
-                <button type="button" class="btn btn-danger" id="slettBilett">Slett alle biletter</button>
+                <span id="alleBiletter"></span>
+                <button class="btn btn-danger" onclick="slettAlle()">Slett alle biletter</button>
             </div>
         </div>
   </div>
-  <script src="app.js"></script>
+  <script src="app2.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>
