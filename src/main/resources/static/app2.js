@@ -14,62 +14,68 @@ function regBilett() {
         telefonNr: telefonNr,
         email: email
     };
-    $("#antall").val("");
-    $("#forNavn").val("");
-    $("#etterNavn").val("");
-    $("#telefonNr").val("");
-    $("#email").val("");
+
 
     let feil = "*Må skrive noe inn i "
     let teller = 0;
+    let valid = true;
 
     if (isNaN(antall) || antall === "") {
-        teller++
         $("#antallValidationMsg").html("*Må velge antall");
+        valid = false;
     } else {
         $("#antallValidationMsg").html("");
     }
     if (!forNavn) {
-        teller++;
         $("#firstNameValidationMsg").html(feil + "fornavn");
+        valid = false;
     } else {
         $("#firstNameValidationMsg").html("");
     }
     if (!etterNavn) {
-        teller++;
         $("#lastNameValidationMsg").html(feil + "etternavn");
+        valid = false;
     } else {
         $("#lastNameValidationMsg").html("");
     }
-    if (telefonNr.length != 8 || !telefonNr) {
-        teller++;
+    if (!validateTelefonNr(telefonNr)) {
         $("#telefonNrValidationMsg").html("*Ugyldig telefonnr");
+        valid = false;
     } else {
         $("#telefonNrValidationMsg").html("");
     }
-    if (!email) {
-        teller++;
+
+    if (!validateEmail(email)) {
         $("#emailValidationMsg").html("*Ugyldig email");
+        valid = false;
     } else {
         $("#emailValidationMsg").html("");
     }
-    /*function validateTelefonNr(tlfnr) {
-        const telefonNrRegex = /^\d{8}$/;
-        return telefonNrRegex.test(tlfnr);
-    }
-    function validateEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    */
-    if (teller == 0) {
-        $.get("/lagre", bilett, function () { //bilett gjøres om til json
+
+    if (valid) {
+        $.post("/lagre", bilett, function () { //bilett gjøres om til json
             hentAlle();
         })
+
+        $("#antall").val("");
+        $("#forNavn").val("");
+        $("#etterNavn").val("");
+        $("#telefonNr").val("");
+        $("#email").val("");
     }
 }
-    function hentAlle(){ //kaller server metoden hentAlle
-        $.post("/hentAlle", function(data){ //mottas fra server
+    function validateTelefonNr(tlfnr) {
+    const telefonNrRegex = /^\d{8}$/;
+    return telefonNrRegex.test(tlfnr);
+    }
+
+    function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+    }
+
+function hentAlle(){ //kaller server metoden hentAlle
+        $.get("/hentAlle", function(data){ //mottas fra server
             formaterData(data); //kaller på formater data
         })
     }
@@ -79,8 +85,8 @@ function regBilett() {
             "<th>Etternavn</th><th>Telefon</th><th>Epost</th></tr>";
         for(const i of biletter){
             ut += "<tr>";
-            ut += "<td>" +i.film+ "</td>"+"<td>"+ i.antall+ "</td>" + "<td>" +
-                i.forNavn+ "</td>" + "<td>" + i.etterNavn+" </td>" + "<td>" +
+            ut += "<td>"+i.film+"</td>"+"<td>"+i.antall+"</td>"+"<td>" +
+                i.forNavn+"</td>"+"<td>"+ i.etterNavn+" </td>" + "<td>" +
                 i.telefonNr+"</td>" + "<td>" + i.email+ "</td>";
             ut+= "</tr>";
         }

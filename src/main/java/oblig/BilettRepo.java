@@ -5,8 +5,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Collections;
 import java.util.List;
 
-@Repository
-
+/*@Repository
 public class BilettRepo{
     @Autowired
     private JdbcTemplate db;
@@ -14,3 +13,4 @@ public class BilettRepo{
 
 
 }
+*/

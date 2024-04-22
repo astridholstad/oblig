@@ -17,12 +17,12 @@ public class Bilett{
    //* @Autowired
    // BiletterRepo rep;
 
-    @GetMapping("/lagre")
+    @PostMapping("/lagre")
     public void lagreBilett(Biletter innBilett){
         alleBiletter.add(innBilett);
     }
 
-    @PostMapping("/hentAlle")
+    @GetMapping("/hentAlle")
     public ArrayList<Biletter> hentAlle() {
         return alleBiletter;
     }
