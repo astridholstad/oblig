@@ -80,17 +80,20 @@ function hentAlle(){ //kaller server metoden hentAlle
         })
     }
     function formaterData(biletter){
-        let ut= "<table class=´table`><table>"+"<tr>"+
-            "<th>Film</th><th>Antall</th><th>Fornavn</th>" +
-            "<th>Etternavn</th><th>Telefon</th><th>Epost</th></tr>";
+        let ut= "<table class='table table-striped'><tr><th>Film</th><th>Antall</th>"+
+            "<th>Fornavn</th><th>Etternavn</th><th>Telefon</th><th>Epost</tr>";
         for(const i of biletter){
-            ut += "<tr>";
-            ut += "<td>"+i.film+"</td>"+"<td>"+i.antall+"</td>"+"<td>" +
-                i.forNavn+"</td>"+"<td>"+ i.etterNavn+" </td>" + "<td>" +
-                i.telefonNr+"</td>" + "<td>" + i.email+ "</td>";
-            ut+= "</tr>";
+            ut += "<tr><td>"+ i.film +
+                  "</td><td>" + i.antall +
+                  "</td><td>" + i.forNavn+
+                  "</td><td>"+ i.etterNavn+
+                  "</td><td>" + i.telefonNr+
+                  "</td><td>" + i.email+
+                  "</td> </tr>";
         }
+        ut += "</table>";
         $("#alleBiletter").html(ut);
+
     }
     function slettAlle(){
         $.get("/slettAlle", function (data){
